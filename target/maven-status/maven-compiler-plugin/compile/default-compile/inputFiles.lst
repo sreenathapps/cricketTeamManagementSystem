@@ -1,6 +1,6 @@
-C:\Users\dell\Documents\GitHub\cricketTeamManagementSystem\src\main\java\com\example\player\model\Player.java
-C:\Users\dell\Documents\GitHub\cricketTeamManagementSystem\src\main\java\com\example\player\service\PlayerH2Service.java
-C:\Users\dell\Documents\GitHub\cricketTeamManagementSystem\src\main\java\com\example\player\model\PlayerRowMapper.java
-C:\Users\dell\Documents\GitHub\cricketTeamManagementSystem\src\main\java\com\example\player\PlayerApplication.java
-C:\Users\dell\Documents\GitHub\cricketTeamManagementSystem\src\main\java\com\example\player\controller\PlayerController.java
-C:\Users\dell\Documents\GitHub\cricketTeamManagementSystem\src\main\java\com\example\player\repository\PlayerRepository.java
+/home/nxtwave/player/src/main/java/com/example/player/repository/PlayerRepository.java
+/home/nxtwave/player/src/main/java/com/example/player/controller/PlayerController.java
+/home/nxtwave/player/src/main/java/com/example/player/model/Player.java
+/home/nxtwave/player/src/main/java/com/example/player/model/PlayerRowMapper.java
+/home/nxtwave/player/src/main/java/com/example/player/PlayerApplication.java
+/home/nxtwave/player/src/main/java/com/example/player/service/PlayerH2Service.java
