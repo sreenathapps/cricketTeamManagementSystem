@@ -15,8 +15,11 @@ package com.example.player.service;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.example.player.model.Player;
 import com.example.player.model.PlayerRowMapper;
@@ -36,26 +39,43 @@ public class PlayerH2Service implements PlayerRepository {
 
     @Override
     public Player getPlayerById(int playerId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPlayerById'");
+        try{
+            Player player = db.queryForObject("SELECT * FROM team Where playerId = ?", new PlayerRowMapper() , playerId);
+            return player;
+        }
+        catch(Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override
     public Player addPlayer(Player player) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addPlayer'");
+        db.update("INSERT INTO team (playerName,jerseyNumber,role) VALUES ( ? , ? ,?)", player.getPlayerName(),player.getJerseyNumber(), player.getRole());
+        Player savedPlayer = db.queryForObject("Select * from team where playerName = ? and role = ?", new PlayerRowMapper(), player.getPlayerName(),player.getRole());
+        return savedPlayer;
     }
 
     @Override
     public Player updatePlayer(int playerId, Player player) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePlayer'");
+
+        if (player.getPlayerName()!= null) {
+            db.update("UPDATE TEAM SET playerName = ? Where playerId = ?",  player.getPlayerName(),playerId); 
+        }
+        if (player.getJerseyNumber() != 0) {
+            db.update("UPDATE TEAM SET jerseyNumber = ? Where playerId = ?",  player.getJerseyNumber(),playerId); 
+        }
+        if (player.getRole() != null) {
+            db.update("UPDATE team SET role = ? where playerId = ?", player.getRole(), playerId);
+        }
+        return getPlayerById(playerId);
+
     }
 
     @Override
     public void deletePlayer(int playerId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletePlayer'");
+
+        db.update("DELETE team where playerId = ? ", playerId);
+        
     }
     
     

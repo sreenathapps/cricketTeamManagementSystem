@@ -1,0 +1,6 @@
+2024-07-07 11:37:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLAYER" not found; SQL statement:
+SELECT * FROM Player [42102-214]
+2024-07-07 11:38:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PLAYER" not found; SQL statement:
+SELECT * FROM Player [42102-214]
