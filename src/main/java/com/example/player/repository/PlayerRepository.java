@@ -4,10 +4,12 @@ package com.example.player.repository;
 import com.example.player.model.*;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Repository;
+
 /**
  * PlayerRepository
  */
-
+@Repository
 public interface PlayerRepository {
 
     ArrayList<Player> getPlayers();

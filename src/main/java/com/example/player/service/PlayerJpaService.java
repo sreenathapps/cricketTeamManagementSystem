@@ -12,11 +12,14 @@
 // Write your code here
 package com.example.player.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import java.util.*;
+
 import com.example.player.model.*;
 import com.example.player.repository.*;
 
@@ -29,7 +32,7 @@ public class PlayerJpaService implements PlayerRepository {
 	@Override
 	public ArrayList<Player> getPlayers() {
 		List<Player> playerList = playerJpaRepository.findAll();
-		return new ArrayList(playerList);
+		return new ArrayList<>(playerList);
 	}
 
 	@Override
