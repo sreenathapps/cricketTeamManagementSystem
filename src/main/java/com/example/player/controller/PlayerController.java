@@ -46,8 +46,8 @@ public class PlayerController {
     }
 
     @DeleteMapping("/players/{playerId}")
-    public void deletePlayer(@PathVariable int id) {
+    public void deletePlayer(@PathVariable("playerId") int id) {
         playerJpaService.deletePlayer(id);
-        throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        throw new ResponseStatusException(HttpStatus.OK);
     }
 }
